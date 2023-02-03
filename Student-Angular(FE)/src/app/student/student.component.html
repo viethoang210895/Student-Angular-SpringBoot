@@ -1,0 +1,44 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div>
+    <input #search1 placeholder="Enter Name" type="text" style="width: 200px;height: 50px
+  ;margin-left: 800px;border-radius:5px">
+    <span><button style="padding: 11px ; border: solid ;border-radius:5px" (click)="search(search1.value)" >Search</button></span></div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>DOB</th>
+      <th>CLASS</th>
+      <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let st of students ">
+    <tr>
+      <td>{{st.id}}</td>
+      <td>{{st.name}}</td>
+      <td>{{st.dob}}</td>
+      <td>{{st.clazz.name}}</td>
+      <td>
+        <button class="btn btn-warning" [routerLink]="['/form', st.id ]">Update</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(st.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div><input #search2 placeholder="Enter Class" type="text" style="width: 200px;height: 50px
+  ;margin-left: 800px;border-radius:5px">
+    <span><button style="padding: 11px ; border: solid ;border-radius:5px" (click)="searchByClazz(search2.value)" >Search</button></span></div></div>
+<br>
+<br>
+
+  <div>
+    <label for="clazz" class="form-label">Class: </label>
+    <select name="#" id="clazz"  >
+      <option *ngFor="let s of clazz" value="{{s.name}}"></option>
+    </select>
+  </div>
+
